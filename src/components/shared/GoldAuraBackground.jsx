@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 
 /**
  * GoldAuraBackground — animated gold background with flowing waves,
  * soft glow orbs, particles, and concentric ripples.
  * Scroll-reactive parallax. No lines — only waves and circles.
+=======
+import React from "react";
+
+/**
+ * GoldAuraBackground — highly visible, complex animated gold background
+ * with flowing waves, sweeping streaks, light beams, particles, and
+ * concentric ripples. Designed so the page never looks blank.
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
  */
 
 // Wavy gold ribbons — full-width flowing sine-wave bands
@@ -16,6 +25,30 @@ const WAVES = [
   { top: "90%", amp: 20, dur: "11s", delay: "2.5s", opacity: 0.2, thickness: 90, hue: "245,200,80" },
 ];
 
+<<<<<<< HEAD
+=======
+// Diagonal light beams — cinematic sweeping streaks
+const BEAMS = [
+  { top: "5%", duration: "6s", delay: "0s", length: 400, opacity: 0.7 },
+  { top: "18%", duration: "8s", delay: "1s", length: 350, opacity: 0.5 },
+  { top: "35%", duration: "7s", delay: "0.5s", length: 450, opacity: 0.6 },
+  { top: "50%", duration: "9s", delay: "2s", length: 380, opacity: 0.45 },
+  { top: "65%", duration: "6.5s", delay: "1.5s", length: 420, opacity: 0.55 },
+  { top: "80%", duration: "8.5s", delay: "3s", length: 360, opacity: 0.4 },
+  { top: "92%", duration: "7.5s", delay: "0.8s", length: 440, opacity: 0.5 },
+];
+
+// Thin gold threads — secondary flowing lines
+const THREADS = [
+  { top: "15%", duration: "10s", delay: "0s", opacity: 0.3 },
+  { top: "30%", duration: "13s", delay: "2s", opacity: 0.22 },
+  { top: "48%", duration: "11s", delay: "1s", opacity: 0.28 },
+  { top: "62%", duration: "14s", delay: "3.5s", opacity: 0.2 },
+  { top: "75%", duration: "12s", delay: "1.8s", opacity: 0.25 },
+  { top: "88%", duration: "15s", delay: "2.8s", opacity: 0.18 },
+];
+
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
 // Floating gold particles
 const PARTICLES = Array.from({ length: 30 }, () => ({
   top: `${Math.random() * 95}%`,
@@ -26,6 +59,7 @@ const PARTICLES = Array.from({ length: 30 }, () => ({
   opacity: 0.3 + Math.random() * 0.4,
 }));
 
+<<<<<<< HEAD
 // Concentric ripple rings — more of them, brighter
 const RINGS = [
   { left: "20%", top: "35%", size: 200, dur: "8s", delay: "0s", opacity: 0.2 },
@@ -45,6 +79,16 @@ export default function GoldAuraBackground() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+=======
+// Concentric ripple rings
+const RINGS = [
+  { left: "20%", top: "35%", size: 200, dur: "8s", delay: "0s", opacity: 0.12 },
+  { left: "75%", top: "55%", size: 260, dur: "10s", delay: "3s", opacity: 0.1 },
+  { left: "50%", top: "80%", size: 180, dur: "9s", delay: "1.5s", opacity: 0.14 },
+];
+
+export default function GoldAuraBackground() {
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
       {/* Deep black gradient base */}
@@ -53,22 +97,34 @@ export default function GoldAuraBackground() {
         style={{ background: "radial-gradient(ellipse at 50% 30%, #0a0805 0%, #000000 80%)" }}
       />
 
+<<<<<<< HEAD
       {/* Large soft gold radial glows — parallax on scroll */}
+=======
+      {/* Large soft gold radial glows */}
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
       <div
         className="absolute"
         style={{
           top: "10%", left: "15%",
+<<<<<<< HEAD
           width: "550px", height: "550px",
           background: "radial-gradient(circle, rgba(212,175,55,0.16) 0%, transparent 65%)",
           filter: "blur(55px)",
           animation: "gold-glow-pulse 8s ease-in-out infinite",
           transform: `translateY(${scrollY * 0.15}px)`,
+=======
+          width: "500px", height: "500px",
+          background: "radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 65%)",
+          filter: "blur(60px)",
+          animation: "gold-glow-pulse 8s ease-in-out infinite",
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
         }}
       />
       <div
         className="absolute"
         style={{
           bottom: "5%", right: "10%",
+<<<<<<< HEAD
           width: "650px", height: "650px",
           background: "radial-gradient(circle, rgba(245,200,80,0.13) 0%, transparent 65%)",
           filter: "blur(65px)",
@@ -90,11 +146,25 @@ export default function GoldAuraBackground() {
       />
 
       {/* Flowing gold waves — SVG sine-wave bands with animated path, parallax on scroll */}
+=======
+          width: "600px", height: "600px",
+          background: "radial-gradient(circle, rgba(245,200,80,0.08) 0%, transparent 65%)",
+          filter: "blur(70px)",
+          animation: "gold-glow-pulse 10s ease-in-out 2s infinite",
+        }}
+      />
+
+      {/* Flowing gold waves — SVG sine-wave bands with animated path */}
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
       <svg
         className="absolute inset-0 w-full h-full"
         preserveAspectRatio="none"
         viewBox="0 0 1440 900"
+<<<<<<< HEAD
         style={{ opacity: 1, transform: `translateY(${scrollY * 0.05}px)` }}
+=======
+        style={{ opacity: 1 }}
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
       >
         <defs>
           {WAVES.map((w, i) => (
@@ -130,6 +200,7 @@ export default function GoldAuraBackground() {
         })}
       </svg>
 
+<<<<<<< HEAD
       {/* Extra ambient glow orbs — more depth and warmth */}
       <div
         className="absolute"
@@ -163,6 +234,44 @@ export default function GoldAuraBackground() {
           animation: "gold-glow-pulse 7s ease-in-out 3s infinite",
         }}
       />
+=======
+      {/* Diagonal light beams — sweeping streaks */}
+      {BEAMS.map((b, i) => (
+        <div
+          key={`beam-${i}`}
+          className="absolute"
+          style={{
+            top: b.top,
+            left: `-${b.length}px`,
+            width: `${b.length}px`,
+            height: "2px",
+            background: `linear-gradient(90deg, transparent, rgba(212,175,55,${b.opacity}) 40%, rgba(245,200,80,${b.opacity * 1.3}) 50%, rgba(212,175,55,${b.opacity}) 60%, transparent)`,
+            filter: "blur(1px)",
+            boxShadow: `0 0 15px rgba(212,175,55,${b.opacity * 0.6})`,
+            transform: "rotate(-10deg)",
+            animation: `beam-sweep ${b.duration} linear ${b.delay} infinite`,
+          }}
+        />
+      ))}
+
+      {/* Thin flowing gold threads */}
+      {THREADS.map((t, i) => (
+        <div
+          key={`thread-${i}`}
+          className="absolute"
+          style={{
+            top: t.top,
+            left: "-600px",
+            width: "600px",
+            height: "1px",
+            background: `linear-gradient(90deg, transparent, rgba(212,175,55,${t.opacity}) 50%, transparent)`,
+            boxShadow: `0 0 8px rgba(212,175,55,${t.opacity * 0.5})`,
+            transform: "rotate(-7deg)",
+            animation: `beam-sweep ${t.duration} linear ${t.delay} infinite`,
+          }}
+        />
+      ))}
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
 
       {/* Concentric ripple rings */}
       {RINGS.map((r, i) => (
@@ -202,9 +311,15 @@ export default function GoldAuraBackground() {
       <div
         className="absolute bottom-0 left-0 right-0"
         style={{
+<<<<<<< HEAD
           height: "40%",
           background: "linear-gradient(to top, rgba(212,175,55,0.13) 0%, transparent 70%)",
           filter: "blur(35px)",
+=======
+          height: "35%",
+          background: "linear-gradient(to top, rgba(212,175,55,0.08) 0%, transparent 70%)",
+          filter: "blur(30px)",
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
         }}
       />
 
@@ -231,10 +346,13 @@ export default function GoldAuraBackground() {
           0%, 100% { opacity: 0.6; transform: scale(1); }
           50% { opacity: 1; transform: scale(1.15); }
         }
+<<<<<<< HEAD
         @keyframes gold-glow-pulse-parallax {
           0%, 100% { opacity: 0.6; }
           50% { opacity: 1; }
         }
+=======
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
         @keyframes ring-expand {
           0% { transform: scale(0.5); opacity: 0; }
           50% { opacity: 1; }
@@ -244,10 +362,13 @@ export default function GoldAuraBackground() {
           0%, 100% { opacity: 0.2; transform: translateY(0px) scale(0.8); }
           50% { opacity: 0.8; transform: translateY(-30px) scale(1.3); }
         }
+<<<<<<< HEAD
         @keyframes wave-vertical {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(20px); }
         }
+=======
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
       `}</style>
     </div>
   );

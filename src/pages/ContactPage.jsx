@@ -18,7 +18,11 @@ export default function ContactPage() {
     e.preventDefault();
     setSending(true);
     try {
+<<<<<<< HEAD
       await Store.createMessage(form);
+=======
+      Store.createMessage(form);
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
       setSent(true);
       setForm({ name: "", email: "", subject: "", message: "" });
       toast.success("Message sent successfully!");

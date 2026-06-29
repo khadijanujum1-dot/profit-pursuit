@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Store } from "@/lib/store";
 
+<<<<<<< HEAD
 function useAsyncEntity(fetchFn, initialValue = []) {
   const [data, setData] = useState(initialValue);
   useEffect(() => {
@@ -32,3 +33,19 @@ export function useSettings() {
   }, []);
   return settings;
 }
+=======
+function useStoreData(getter) {
+  const [data, setData] = useState(() => getter());
+  useEffect(() => {
+    const unsub = Store.subscribe(() => setData(getter()));
+    return unsub;
+  }, [getter]);
+  return data;
+}
+
+export const useEditions = () => useStoreData(Store.getEditions);
+export const useMessages = () => useStoreData(Store.getMessages);
+export const useTeam = () => useStoreData(Store.getTeam);
+export const useSettings = () => useStoreData(Store.getSettings);
+export const useActivity = () => useStoreData(Store.getActivity);
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4

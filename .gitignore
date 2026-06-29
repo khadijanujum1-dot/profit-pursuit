@@ -29,3 +29,8 @@ dist-ssr
 
 .env
 .vite
+<<<<<<< HEAD
+=======
+node_modules
+node_modules/
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4

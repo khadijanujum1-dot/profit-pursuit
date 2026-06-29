@@ -16,6 +16,7 @@ export default function TeamManager() {
   const openEdit = (m) => { setForm({ ...m }); setEditing(m); };
   const close = () => setEditing(null);
 
+<<<<<<< HEAD
   const handleSave = async (e) => {
     e.preventDefault();
     try {
@@ -42,6 +43,22 @@ export default function TeamManager() {
     } catch {
       toast.error("Failed to update member");
     }
+=======
+  const handleSave = (e) => {
+    e.preventDefault();
+    if (editing === "new") { Store.createTeamMember(form); toast.success("Team member added!"); }
+    else { Store.updateTeamMember(editing.id, form); toast.success("Team member updated!"); }
+    close();
+  };
+
+  const handleDelete = (id) => {
+    if (!confirm("Remove this team member?")) return;
+    Store.deleteTeamMember(id); toast.success("Team member removed");
+  };
+
+  const toggleActive = (m) => {
+    Store.updateTeamMember(m.id, { active: !m.active });
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
   };
 
   return (

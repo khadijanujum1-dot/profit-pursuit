@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 "use client"
 
 import { useToast } from "@/hooks/use-toast"
+=======
+import { useToast } from "@/components/ui/use-toast";
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
 import {
   Toast,
   ToastClose,
@@ -8,10 +12,17 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
+<<<<<<< HEAD
 } from "@/components/ui/toast"
 
 export function Toaster() {
   const { toasts } = useToast()
+=======
+} from "@/components/ui/toast";
+
+export function Toaster() {
+  const { toasts } = useToast();
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
 
   return (
     <ToastProvider>
@@ -32,4 +43,8 @@ export function Toaster() {
       <ToastViewport />
     </ToastProvider>
   );
+<<<<<<< HEAD
 }
+=======
+} 
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4

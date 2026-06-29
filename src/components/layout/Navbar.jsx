@@ -72,10 +72,17 @@ export default function Navbar({ mode = "public" }) {
         <Link to="/" className="flex items-center gap-1">
           <img src={LOGO_URL} alt="Profit Pursuit" className="h-12 object-contain" />
           <div className="flex flex-col leading-none">
+<<<<<<< HEAD
             <span className="font-heading text-white font-bold text-2xl tracking-[0.1em] uppercase">
               Profit Pursuit
             </span>
             <span className="text-gold/50 text-[10px] tracking-[0.3em] uppercase mt-0.5">
+=======
+            <span className="font-heading text-white font-bold text-xl tracking-[0.1em] uppercase">
+              Profit Pursuit
+            </span>
+            <span className="text-gold/50 text-[9px] tracking-[0.3em] uppercase mt-0.5">
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
               Est. 2023
             </span>
           </div>
@@ -89,7 +96,11 @@ export default function Navbar({ mode = "public" }) {
                 {i > 0 && <span className="text-gold/20 text-xs mx-1">•</span>}
                 <Link
                   to={link.path}
+<<<<<<< HEAD
                   className={`relative px-4 py-2 text-base tracking-wider transition-colors duration-300 ${isActive ? "text-gold" : "text-white/60 hover:text-gold"}`}
+=======
+                  className={`relative px-3 py-2 text-sm tracking-wider transition-colors duration-300 ${isActive ? "text-gold" : "text-white/60 hover:text-gold"}`}
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
                 >
                   {link.label}
                 </Link>
@@ -109,7 +120,11 @@ export default function Navbar({ mode = "public" }) {
             <Link
               key={link.path}
               to={link.path}
+<<<<<<< HEAD
               className={`block py-3.5 text-base tracking-wider border-b border-gold/5 ${location.pathname === link.path ? "text-gold" : "text-white/60"}`}
+=======
+              className={`block py-3 text-sm tracking-wider border-b border-gold/5 ${location.pathname === link.path ? "text-gold" : "text-white/60"}`}
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
             >
               {link.label}
             </Link>

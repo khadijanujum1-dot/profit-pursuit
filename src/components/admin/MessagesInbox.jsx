@@ -7,6 +7,7 @@ import { toast } from "sonner";
 export default function MessagesInbox() {
   const messages = useMessages();
 
+<<<<<<< HEAD
   const handleDelete = async (id) => {
     if (!confirm("Delete this message?")) return;
     try {
@@ -22,6 +23,15 @@ export default function MessagesInbox() {
     } catch {
       toast.error("Failed to mark message as read");
     }
+=======
+  const handleDelete = (id) => {
+    if (!confirm("Delete this message?")) return;
+    Store.deleteMessage(id); toast.success("Message deleted");
+  };
+
+  const handleMarkRead = (id) => {
+    Store.markMessageRead(id);
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
   };
 
   return (

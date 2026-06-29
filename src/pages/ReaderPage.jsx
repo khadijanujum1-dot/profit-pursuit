@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
+=======
+import React, { useEffect } from "react";
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
@@ -8,6 +12,7 @@ import GoldAuraBackground from "@/components/shared/GoldAuraBackground";
 
 export default function ReaderPage() {
   const { id } = useParams();
+<<<<<<< HEAD
   const [edition, setEdition] = useState(null);
   const [siblings, setSiblings] = useState({ prev: null, next: null });
   const [loading, setLoading] = useState(true);
@@ -42,6 +47,16 @@ export default function ReaderPage() {
       </div>
     );
   }
+=======
+  const editionId = Number(id);
+  const edition = Store.getEdition(editionId);
+  const editions = Store.getEditions().filter((e) => e.status === "published");
+  const currentIndex = editions.findIndex((e) => e.id === editionId);
+  const prevEdition = currentIndex > 0 ? editions[currentIndex - 1] : null;
+  const nextEdition = currentIndex >= 0 && currentIndex < editions.length - 1 ? editions[currentIndex + 1] : null;
+
+  useEffect(() => { window.scrollTo(0, 0); }, [id]);
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
 
   if (!edition || !edition.flipbook_url) {
     return (
@@ -86,14 +101,24 @@ export default function ReaderPage() {
 
       {/* Prev/Next Nav */}
       <div className="max-w-6xl mx-auto px-6 pb-16 flex items-center justify-between">
+<<<<<<< HEAD
         {siblings.prev ? (
           <Link to={`/read/${siblings.prev.id}`} className="flex items-center gap-2 text-gold hover:text-gold-light transition-colors text-sm tracking-wider uppercase">
+=======
+        {prevEdition ? (
+          <Link to={`/read/${prevEdition.id}`} className="flex items-center gap-2 text-gold hover:text-gold-light transition-colors text-sm tracking-wider uppercase">
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
             <ArrowLeft size={14} /> Previous
           </Link>
         ) : <div />}
         <Link to="/archive" className="text-white/40 text-sm tracking-wider uppercase hover:text-gold transition-colors">All Editions</Link>
+<<<<<<< HEAD
         {siblings.next ? (
           <Link to={`/read/${siblings.next.id}`} className="flex items-center gap-2 text-gold hover:text-gold-light transition-colors text-sm tracking-wider uppercase">
+=======
+        {nextEdition ? (
+          <Link to={`/read/${nextEdition.id}`} className="flex items-center gap-2 text-gold hover:text-gold-light transition-colors text-sm tracking-wider uppercase">
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
             Next <ArrowRight size={14} />
           </Link>
         ) : <div />}

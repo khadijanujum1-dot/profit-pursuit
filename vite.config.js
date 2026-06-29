@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import base44 from "@base44/vite-plugin"
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
@@ -17,3 +18,17 @@ export default defineConfig({
     react(),
   ]
 });
+=======
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import path from 'path'
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+});
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4

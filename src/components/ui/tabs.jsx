@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 "use client"
 
+=======
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
 import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
 

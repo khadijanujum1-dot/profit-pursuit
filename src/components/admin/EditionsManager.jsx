@@ -21,6 +21,7 @@ export default function EditionsManager() {
   const close = () => setEditing(null);
 
   const handleSave = async (e) => {
+<<<<<<< HEAD
     e.preventDefault();
     const data = { ...form, edition_number: Number(form.edition_number) };
     try {
@@ -55,6 +56,32 @@ export default function EditionsManager() {
       toast.error("Failed to update featured edition");
     }
   };
+=======
+  e.preventDefault();
+  const data = { ...form, edition_number: Number(form.edition_number) };
+  if (editing === "new") {
+    await Store.createEdition(data);
+    toast.success("Edition created!");
+  } else {
+    await Store.updateEdition(editing.id, data);
+    toast.success("Edition updated!");
+  }
+  await Store.loadAll();
+  close();
+};
+  const handleDelete = async (id) => {
+  if (!confirm("Delete this edition?")) return;
+  await Store.deleteEdition(id);
+  await Store.loadAll();
+  toast.success("Edition deleted");
+};
+
+  const handleSetFeatured = async (id) => {
+  await Store.setFeatured(id);
+  await Store.loadAll();
+  toast.success("Featured edition updated");
+};
+>>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
 
   return (
     <div>
