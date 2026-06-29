@@ -86,7 +86,7 @@ export const Store = {
   },
 
   getTeam: async () => {
-    const { data } = await supabase.from("team_members").select("*").order("order", { ascending: true });
+    const { data } = await supabase.from("team_members").select("*").order("created_at", { ascending: true });
     return data || [];
   },
   createTeamMember: async (d) => {
