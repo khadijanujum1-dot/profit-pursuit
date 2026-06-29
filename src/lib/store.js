@@ -45,10 +45,12 @@ export const Store = {
     notify(); return newEd;
   },
   async updateEdition(id, data) {
-    await supabase.from('editions').update(data).eq('id', id);
-    cache.editions = (cache.editions || []).map(e => e.id === id ? { ...e, ...data } : e);
-    notify();
-  },
+  console.log('ID being used:', id, typeof id);
+  const { data: result, error } = await supabase.from('editions').update(data).eq('id', id).select();
+  console.log('Rows updated:', result, 'Error:', error);
+  cache.editions = (cache.editions || []).map(e => e.id === id ? { ...e, ...data } : e);
+  notify();
+},
   async deleteEdition(id) {
     await supabase.from('editions').delete().eq('id', id);
     cache.editions = (cache.editions || []).filter(e => e.id !== id);
