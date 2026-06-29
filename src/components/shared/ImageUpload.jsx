@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
-import { base44 } from "@/api/base44Client";
 import { Upload, Loader2, X } from "lucide-react";
 import { toast } from "sonner";
+
+const CLOUD_NAME = "dsj0axedi";
+const UPLOAD_PRESET = "profit_pursuit";
 
 export default function ImageUpload({ value, onChange, previewClass = "w-10 h-14", label = "Upload Image" }) {
   const inputRef = useRef(null);
@@ -10,9 +12,20 @@ export default function ImageUpload({ value, onChange, previewClass = "w-10 h-14
   const handleUpload = async (file) => {
     setUploading(true);
     try {
-      const { file_url } = await base44.integrations.Core.UploadFile({ file });
-      onChange(file_url);
-      toast.success("Image uploaded!");
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", UPLOAD_PRESET);
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.secure_url) {
+        onChange(data.secure_url);
+        toast.success("Image uploaded!");
+      } else {
+        throw new Error("No URL returned");
+      }
     } catch {
       toast.error("Upload failed");
     } finally {
