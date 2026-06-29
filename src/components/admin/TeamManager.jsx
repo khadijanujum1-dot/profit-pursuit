@@ -16,7 +16,6 @@ export default function TeamManager() {
   const openEdit = (m) => { setForm({ ...m }); setEditing(m); };
   const close = () => setEditing(null);
 
-<<<<<<< HEAD
   const handleSave = async (e) => {
     e.preventDefault();
     try {
@@ -43,22 +42,6 @@ export default function TeamManager() {
     } catch {
       toast.error("Failed to update member");
     }
-=======
-  const handleSave = (e) => {
-    e.preventDefault();
-    if (editing === "new") { Store.createTeamMember(form); toast.success("Team member added!"); }
-    else { Store.updateTeamMember(editing.id, form); toast.success("Team member updated!"); }
-    close();
-  };
-
-  const handleDelete = (id) => {
-    if (!confirm("Remove this team member?")) return;
-    Store.deleteTeamMember(id); toast.success("Team member removed");
-  };
-
-  const toggleActive = (m) => {
-    Store.updateTeamMember(m.id, { active: !m.active });
->>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
   };
 
   return (
@@ -69,7 +52,6 @@ export default function TeamManager() {
           <Plus size={14} /> Add Member
         </button>
       </div>
-
       <div className="space-y-2">
         {team.map((m) => (
           <div key={m.id} className="flex items-center gap-4 bg-black/30 border border-gold/8 px-4 py-3 hover:border-gold/20 transition-colors">
@@ -93,7 +75,6 @@ export default function TeamManager() {
           </div>
         ))}
       </div>
-
       {editing && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-6" onClick={close}>
           <form onClick={(e) => e.stopPropagation()} onSubmit={handleSave} className="bg-charcoal border border-gold/15 rounded-lg p-6 w-full max-w-md">
@@ -104,26 +85,26 @@ export default function TeamManager() {
             <div className="space-y-4">
               <div>
                 <label className="text-gold/50 text-[10px] tracking-wider uppercase block mb-1">Name</label>
-                <input type="text" required value={form.name || ""} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full bg-black/50 border border-gold/15 text-white px-3 py-2 text-sm focus:border-gold/40 focus:outline-none" />
+                <input type="text" required value={form.name || ""} onChange={(e) => setForm({...form, name: e.target.value})} className="w-full bg-black/50 border border-gold/15 text-white px-3 py-2 text-sm focus:border-gold/40 focus:outline-none" />
               </div>
               <div>
                 <label className="text-gold/50 text-[10px] tracking-wider uppercase block mb-1">Role</label>
-                <input type="text" required value={form.role || ""} onChange={(e) => setForm({ ...form, role: e.target.value })} className="w-full bg-black/50 border border-gold/15 text-white px-3 py-2 text-sm focus:border-gold/40 focus:outline-none" />
+                <input type="text" required value={form.role || ""} onChange={(e) => setForm({...form, role: e.target.value})} className="w-full bg-black/50 border border-gold/15 text-white px-3 py-2 text-sm focus:border-gold/40 focus:outline-none" />
               </div>
               <div>
                 <label className="text-gold/50 text-[10px] tracking-wider uppercase block mb-1">Department</label>
-                <input type="text" value={form.department || ""} onChange={(e) => setForm({ ...form, department: e.target.value })} placeholder="e.g. Accounts, Marketing..." className="w-full bg-black/50 border border-gold/15 text-white px-3 py-2 text-sm focus:border-gold/40 focus:outline-none" />
+                <input type="text" value={form.department || ""} onChange={(e) => setForm({...form, department: e.target.value})} className="w-full bg-black/50 border border-gold/15 text-white px-3 py-2 text-sm focus:border-gold/40 focus:outline-none" />
               </div>
               <div>
                 <label className="text-gold/50 text-[10px] tracking-wider uppercase block mb-1">Bio</label>
-                <textarea rows={2} value={form.bio || ""} onChange={(e) => setForm({ ...form, bio: e.target.value })} className="w-full bg-black/50 border border-gold/15 text-white px-3 py-2 text-sm focus:border-gold/40 focus:outline-none resize-none" />
+                <textarea rows={2} value={form.bio || ""} onChange={(e) => setForm({...form, bio: e.target.value})} className="w-full bg-black/50 border border-gold/15 text-white px-3 py-2 text-sm focus:border-gold/40 focus:outline-none resize-none" />
               </div>
               <div>
                 <label className="text-gold/50 text-[10px] tracking-wider uppercase block mb-1">Avatar URL</label>
-                <input type="url" value={form.avatar || ""} onChange={(e) => setForm({ ...form, avatar: e.target.value })} placeholder="https://..." className="w-full bg-black/50 border border-gold/15 text-white px-3 py-2 text-sm focus:border-gold/40 focus:outline-none" />
+                <input type="url" value={form.avatar || ""} onChange={(e) => setForm({...form, avatar: e.target.value})} placeholder="https://..." className="w-full bg-black/50 border border-gold/15 text-white px-3 py-2 text-sm focus:border-gold/40 focus:outline-none" />
               </div>
               <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" checked={form.active ?? true} onChange={(e) => setForm({ ...form, active: e.target.checked })} className="accent-gold" />
+                <input type="checkbox" checked={form.active ?? true} onChange={(e) => setForm({...form, active: e.target.checked})} className="accent-gold" />
                 <span className="text-white/60 text-sm">Active</span>
               </label>
             </div>
