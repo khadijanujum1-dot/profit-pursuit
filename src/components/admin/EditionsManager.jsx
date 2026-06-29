@@ -20,29 +20,31 @@ export default function EditionsManager() {
   };
   const close = () => setEditing(null);
 
-  const handleSave = (e) => {
-    e.preventDefault();
-    const data = { ...form, edition_number: Number(form.edition_number) };
-    if (editing === "new") {
-      Store.createEdition(data);
-      toast.success("Edition created!");
-    } else {
-      Store.updateEdition(editing.id, data);
-      toast.success("Edition updated!");
-    }
-    close();
-  };
+  const handleSave = async (e) => {
+  e.preventDefault();
+  const data = { ...form, edition_number: Number(form.edition_number) };
+  if (editing === "new") {
+    await Store.createEdition(data);
+    toast.success("Edition created!");
+  } else {
+    await Store.updateEdition(editing.id, data);
+    toast.success("Edition updated!");
+  }
+  await Store.loadAll();
+  close();
+};
+  const handleDelete = async (id) => {
+  if (!confirm("Delete this edition?")) return;
+  await Store.deleteEdition(id);
+  await Store.loadAll();
+  toast.success("Edition deleted");
+};
 
-  const handleDelete = (id) => {
-    if (!confirm("Delete this edition?")) return;
-    Store.deleteEdition(id);
-    toast.success("Edition deleted");
-  };
-
-  const handleSetFeatured = (id) => {
-    Store.setFeatured(id);
-    toast.success("Featured edition updated");
-  };
+  const handleSetFeatured = async (id) => {
+  await Store.setFeatured(id);
+  await Store.loadAll();
+  toast.success("Featured edition updated");
+};
 
   return (
     <div>
