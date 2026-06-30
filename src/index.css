@@ -3,13 +3,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-<<<<<<< HEAD
-=======
+
 html, body, #root {
   background-color: #000000;
   color: #ffffff;
 }
->>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
 
 @layer base {
   :root {
@@ -81,17 +79,12 @@ html, body, #root {
   * {
     @apply border-border outline-ring/50;
   }
-<<<<<<< HEAD
   html {
     scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground font-body;
   }
-=======
-  body {
-@apply bg-background text-foreground;  }
->>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
 }
 
 @keyframes fade-up {
@@ -155,7 +148,6 @@ html, body, #root {
 }
 .btn-pulse-gold {
   animation: btn-pulse-gold 2.5s ease-in-out infinite;
-<<<<<<< HEAD
 }
 
 /* ─── Toggle card animations ─── */
@@ -209,6 +201,3 @@ html, body, #root {
   to { transform: rotate(360deg); }
 }
 .animate-spin-slow { animation: spin-slow 20s linear infinite; }
-=======
-}
->>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
