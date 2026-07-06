@@ -1,17 +1,17 @@
 import React from "react";
-import { Store } from "@/lib/store";
 import { Trash2, Mail, Check } from "lucide-react";
 import { useMessages } from "@/hooks/useStore";
+import { Store } from "@/lib/store";
 import { toast } from "sonner";
 
 export default function MessagesInbox() {
   const messages = useMessages();
 
-<<<<<<< HEAD
   const handleDelete = async (id) => {
     if (!confirm("Delete this message?")) return;
     try {
-      await Store.deleteMessage(id); toast.success("Message deleted");
+      await Store.deleteMessage(id);
+      toast.success("Message deleted");
     } catch {
       toast.error("Failed to delete message");
     }
@@ -23,15 +23,6 @@ export default function MessagesInbox() {
     } catch {
       toast.error("Failed to mark message as read");
     }
-=======
-  const handleDelete = (id) => {
-    if (!confirm("Delete this message?")) return;
-    Store.deleteMessage(id); toast.success("Message deleted");
-  };
-
-  const handleMarkRead = (id) => {
-    Store.markMessageRead(id);
->>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
   };
 
   return (
@@ -52,7 +43,7 @@ export default function MessagesInbox() {
                   <div className="flex items-center gap-3 text-xs text-gold/50 mb-1">
                     <a href={`mailto:${msg.email}`} className="flex items-center gap-1 hover:text-gold"><Mail size={11} /> {msg.email}</a>
                     <span>·</span>
-                    <span>{new Date(msg.created_date).toLocaleDateString()}</span>
+                    <span>{new Date(msg.created_date || msg.created_at).toLocaleDateString()}</span>
                   </div>
                   <span className="text-gold/60 text-xs tracking-wider uppercase">{msg.subject}</span>
                   <p className="text-white/50 text-sm mt-2 leading-relaxed">{msg.message}</p>

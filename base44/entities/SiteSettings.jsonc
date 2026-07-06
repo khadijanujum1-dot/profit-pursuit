@@ -1,0 +1,42 @@
+{
+  "name": "SiteSettings",
+  "type": "object",
+  "properties": {
+    "logo_url": {
+      "type": "string",
+      "description": "Logo image URL"
+    },
+    "book_cover_mode": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "same",
+        "individual"
+      ],
+      "default": "auto",
+      "description": "How book covers are selected on the homepage"
+    },
+    "book_cover_url": {
+      "type": "string",
+      "description": "Single cover URL applied to all books (when mode is 'same')"
+    },
+    "book_covers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Individual cover URLs for each book position"
+    },
+    "site_title": {
+      "type": "string",
+      "description": "Site title"
+    },
+    "site_subtitle": {
+      "type": "string",
+      "description": "Site subtitle"
+    }
+  },
+  "required": [
+    "site_title"
+  ]
+}

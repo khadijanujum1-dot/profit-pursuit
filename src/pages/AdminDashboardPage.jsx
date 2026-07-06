@@ -49,7 +49,6 @@ export default function AdminDashboardPage() {
     { id: "activity", label: "Activity Log", icon: Activity },
   ];
 
-<<<<<<< HEAD
   const saveBookCover = async () => {
     try {
       await Store.updateSettings({ book_cover_mode: bookMode, book_cover_url: bookUrl, book_covers: bookCovers });
@@ -66,16 +65,6 @@ export default function AdminDashboardPage() {
     } catch {
       toast.error("Failed to save settings");
     }
-=======
-  const saveBookCover = () => {
-    Store.updateSettings({ book_cover_mode: bookMode, book_cover_url: bookUrl, book_covers: bookCovers });
-    toast.success("Book cover settings saved!");
-  };
-
-  const saveSettings = () => {
-    Store.updateSettings({ logo_url: logoUrl });
-    toast.success("Settings saved!");
->>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
   };
 
   return (
@@ -128,11 +117,7 @@ export default function AdminDashboardPage() {
                 {editions.filter((e) => e.status === "published").map((ed) => (
                   <button
                     key={ed.id}
-<<<<<<< HEAD
                     onClick={async () => { try { await Store.setFeatured(ed.id); toast.success("Featured edition updated!"); } catch { toast.error("Failed to update featured edition"); } }}
-=======
-                    onClick={() => { Store.setFeatured(ed.id); toast.success("Featured edition updated!"); }}
->>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4
                     className={`text-left p-4 border transition-all ${ed.featured ? "border-gold bg-gold/5" : "border-gold/8 hover:border-gold/30"}`}
                   >
                     <div className="flex items-center gap-3 mb-2">

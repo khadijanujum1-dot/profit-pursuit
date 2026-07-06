@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
 import { Store } from "@/lib/store";
 
-<<<<<<< HEAD
 function useAsyncEntity(fetchFn, initialValue = []) {
   const [data, setData] = useState(initialValue);
+
   useEffect(() => {
     let active = true;
-    fetchFn().then((result) => { if (active) setData(result || initialValue); }).catch(() => {});
-    return () => { active = false; };
-  }, []);
+    fetchFn()
+      .then((result) => {
+        if (active) setData(result || initialValue);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, [fetchFn, initialValue]);
+
   return data;
 }
 
@@ -26,26 +33,18 @@ export function useSettings() {
     site_title: "Profit Pursuit",
     site_subtitle: "Est. 2023",
   });
+
   useEffect(() => {
     let active = true;
-    Store.getSettings().then((result) => { if (active) setSettings(result); }).catch(() => {});
-    return () => { active = false; };
+    Store.getSettings()
+      .then((result) => {
+        if (active) setSettings(result);
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
   }, []);
+
   return settings;
 }
-=======
-function useStoreData(getter) {
-  const [data, setData] = useState(() => getter());
-  useEffect(() => {
-    const unsub = Store.subscribe(() => setData(getter()));
-    return unsub;
-  }, [getter]);
-  return data;
-}
-
-export const useEditions = () => useStoreData(Store.getEditions);
-export const useMessages = () => useStoreData(Store.getMessages);
-export const useTeam = () => useStoreData(Store.getTeam);
-export const useSettings = () => useStoreData(Store.getSettings);
-export const useActivity = () => useStoreData(Store.getActivity);
->>>>>>> e2a1f6240e3b81968a9ce0fc0ce2bda6929101d4

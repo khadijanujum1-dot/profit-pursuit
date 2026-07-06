@@ -21,7 +21,6 @@ export default function EditionsManager() {
   const close = () => setEditing(null);
 
   const handleSave = async (e) => {
-  const handleSave = async (e) => {
     e.preventDefault();
     const data = { ...form, edition_number: Number(form.edition_number) };
     try {

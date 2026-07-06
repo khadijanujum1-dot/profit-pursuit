@@ -1,0 +1,53 @@
+{
+  "name": "Edition",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Edition title"
+    },
+    "edition_number": {
+      "type": "number",
+      "description": "Issue number"
+    },
+    "subtitle": {
+      "type": "string",
+      "description": "Edition subtitle or theme"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the edition"
+    },
+    "cover_image": {
+      "type": "string",
+      "description": "Cover image URL"
+    },
+    "flipbook_url": {
+      "type": "string",
+      "description": "Flipbook or PDF viewer URL"
+    },
+    "publish_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Publication date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "published",
+        "coming_soon"
+      ],
+      "default": "published",
+      "description": "Publication status"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this edition is featured on the homepage"
+    }
+  },
+  "required": [
+    "title",
+    "edition_number"
+  ]
+}

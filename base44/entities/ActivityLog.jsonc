@@ -1,0 +1,17 @@
+{
+  "name": "ActivityLog",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "description": "Action title"
+    },
+    "detail": {
+      "type": "string",
+      "description": "Action detail"
+    }
+  },
+  "required": [
+    "action"
+  ]
+}
